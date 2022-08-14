@@ -21,7 +21,7 @@ lastPrevBtnState = "OFF"
 class InputCommunications:
     # ADR service connection variables
     ipaddr = ''
-    adrAddress = "149.166.50.233"
+    adrAddress = "<ip address for ADR server>"
     adrURL = "http://" + adrAddress
     adrUpEndpoint = "/is_up"
     # Foot Pedal input variables for communications
