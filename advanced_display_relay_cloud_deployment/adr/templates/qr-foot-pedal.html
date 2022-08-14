@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron">
+      <div class="text-center">
+        <h1 class="display-4">AVL Advanced Display Relay (ADR)</h1>
+        {% set portalURL = "http://" + server_addr + "/qr-foot-pedal" %}
+        <em><h3 class="lead">To control foot pedal interaction modes from your <b>device</b> go to <h2>{{portalURL}}</h2></h3></em>
+
+      </div>
+    </div>
+    <section>
+      <div class="text-center">
+        <div class="list-group mb-3">
+            <div class="list-group-item">
+                <p>
+                    <h3 hidden id="server">{{ server_addr }}</h3>
+                    <h1>Or scan for Foot Pedal Mode Control Page</h1>
+                    {% set QRcode = "http://" + server_addr + "/static/qr-code.png" %}
+                    <img src={{QRcode}} alt="QR Code Image">
+                    <br>
+                    <!-- <input type="text" id="passcode" name="passcode" placeholder="Please Place Code Here" />
+                    <button type="submit">Submit</button> -->
+                    <!-- <h2>Use this pin for access</h2>
+                    <h1 id="pin"></h1>
+                    <script src="{{ url_for('static', filename='js/pin-display.js') }}" charset="utf-8"></script> -->
+                </p>
+            </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

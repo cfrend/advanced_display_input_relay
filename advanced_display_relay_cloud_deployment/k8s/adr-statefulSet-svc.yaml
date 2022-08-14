@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: advanced-display-relay
+spec:
+  serviceName: adr
+  selector:
+    matchLabels:
+      app: adr
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: adr
+    spec:
+      containers:
+        - name: adr
+          image: cfrend/advanced_display_relay_avl_adr:v0.0.1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 5000
+          volumeMounts:
+          - name: data
+            mountPath: /data/db
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: mongo-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: advanced-display-relay
+  labels:
+    app: adr
+spec:
+  type: LoadBalancer
+  selector:
+    app: adr
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 5000
+    # - protocol: TCP
+    #   name: https
+    #   port: 443
+    #   targetPort: 5000

@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  avl_adr:
+    build: ./adr
+    ports:
+      - '443:5000'
+      - '80:5000'
+    #links:
+      #- db
+    #depends_on:
+    #- db
+
+  #db:
+    #build: ./db

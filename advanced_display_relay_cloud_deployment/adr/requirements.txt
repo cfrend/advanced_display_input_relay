@@ -1,0 +1,15 @@
+Flask==2.0.2
+Flask-WTF==1.0.0
+Jinja2==3.0.3
+MarkupSafe==2.0.1
+Pygments==2.11.2
+WTForms==3.0.1
+Werkzeug==2.0.3
+httplib2==0.20.4
+itsdangerous==2.0.1
+pymongo==3.7.0
+requests==2.27.1
+flask-cors==3.0.10
+pyopenssl
+qrcode
+pillow #This is required for image processing with the qrcode library when used on k8s pod

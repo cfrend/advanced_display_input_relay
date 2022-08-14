@@ -1,0 +1,10 @@
+[Unit]
+Description=ADI Foot Pedal
+
+[Service]
+User=adr
+ExecStart=/usr/bin/python3 /home/adr/adi-foot-pedal.py
+
+[Install]
+WantedBy=multi-user.target
+After=network-online.target

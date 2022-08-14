@@ -1,0 +1,1 @@
+powershell.exe -windowstyle hidden -file C:\api\automation\static\virtualTrackpad\runtrackpad.ps1

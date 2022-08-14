@@ -1,0 +1,1 @@
+get-childitem "C:\adrd" -recurse | unblock-file

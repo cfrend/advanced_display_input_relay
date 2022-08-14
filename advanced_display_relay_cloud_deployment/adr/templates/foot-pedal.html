@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron">
+      <div class="text-center">
+        <h1 class="display-4">Foot Pedal Input Modes</h1>
+      </div>
+    </div>
+    <section>
+      <div class="text-center">
+        <div class="list-group mb-3">
+            <div class="list-group-item">
+                <p>
+                    {% set changeDesktopWithAnimationModeURL = "http://" + server_addr + "/adr_fields/new?adr_field=adr_field_3&json_data=%7B%22desktop%20change%20mode%20without%20animation%22%3A%22OFF%22%2C%22desktop%20change%20mode%20with%20animation%22%3A%22ON%22%2C%22chrome%20tab%20change%20mode%22%3A%22OFF%22%2C%22arrow%20mode%22%3A%22OFF%22%7D" %}
+                    {% set changeDesktopWithoutAnimationModeURL = "http://" + server_addr + "/adr_fields/new?adr_field=adr_field_3&json_data=%7B%22desktop%20change%20mode%20without%20animation%22%3A%22ON%22%2C%22desktop%20change%20mode%20with%20animation%22%3A%22OFF%22%2C%22chrome%20tab%20change%20mode%22%3A%22OFF%22%2C%22arrow%20mode%22%3A%22OFF%22%7D" %}
+                    {% set ChromeTabModeURL = "http://" + server_addr + "/adr_fields/new?adr_field=adr_field_3&json_data=%7B%22desktop%20change%20mode%20without%20animation%22%3A%22OFF%22%2C%22desktop%20change%20mode%20with%20animation%22%3A%22OFF%22%2C%22chrome%20tab%20change%20mode%22%3A%22ON%22%2C%22arrow%20mode%22%3A%22OFF%22%7D" %}
+                    {% set LeftRightArrowModeURL = "http://" + server_addr + "/adr_fields/new?adr_field=adr_field_3&json_data=%7B%22desktop%20change%20mode%20without%20animation%22%3A%22OFF%22%2C%22desktop%20change%20mode%20with%20animation%22%3A%22OFF%22%2C%22chrome%20tab%20change%20mode%22%3A%22OFF%22%2C%22arrow%20mode%22%3A%22ON%22%7D" %}
+                    {% set OffModeURL = "http://" + server_addr + "/adr_fields/new?adr_field=adr_field_3&json_data=%7B%22desktop%20change%20mode%20without%20animation%22%3A%22OFF%22%2C%22desktop%20change%20mode%20with%20animation%22%3A%22OFF%22%2C%22chrome%20tab%20change%20mode%22%3A%22OFF%22%2C%22arrow%20mode%22%3A%22OFF%22%7D" %}
+                    To change the mode of foot pedal input, press one of the modes below.
+                </p>
+                <a class="btn btn-primary btn-lg" href="{{changeDesktopWithAnimationModeURL}}">Change Desktops With Animation Mode</a><br>(Works on non-Mosaic mode advanced displays)<br><br>
+                <a class="btn btn-primary btn-lg" href="{{changeDesktopWithoutAnimationModeURL}}">Change Desktops Without Animation Mode</a><br>(Works on Mosaic mode advanced displays)<br><br>
+                <a class="btn btn-primary btn-lg" href="{{ChromeTabModeURL}}">Change Chrome Tab Mode</a><br>(Click Chrome & leave it in focus)<br><br>
+                <a class="btn btn-primary btn-lg" href="{{LeftRightArrowModeURL}}">Left and Right Arrow Mode</a><br>(Click Window & leave it in focus to respond to left and right arrow input)<br><br>
+                <a class="btn btn-primary btn-lg" href="{{OffModeURL}}">OFF Mode</a><br>(Foot Pedal Input Disabled)<br>
+            </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

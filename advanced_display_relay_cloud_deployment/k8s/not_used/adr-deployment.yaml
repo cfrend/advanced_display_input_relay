@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: advanced-display-relay
+  labels:
+    app: adr
+  annotations:
+spec:
+  selector:
+    matchLabels:
+      app: adr
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: adr
+    spec:
+      containers:
+      - name: adr
+        image: cfrend/advanced_display_relay_avl_adr:v0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+      # - name: adr-db
+      #   image: cfrend/advanced_display_relay_db:v0.0.1
+      #   imagePullPolicy: Always
+      #   ports:
+      #   - containerPort: 27017
+      #   resources:
+      #     requests:
+      #       memory: "64Mi"
+      #       cpu: "50m"
+      #     limits:
+      #       memory: "256Mi"
+      #       cpu: "500m"
